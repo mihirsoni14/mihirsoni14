@@ -7,8 +7,8 @@
 <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=22&duration=3000&pause=1000&color=6C5CE7&center=true&vCenter=true&multiline=true&repeat=true&width=500&height=70&lines=Building+scalable+web+apps+with+Laravel;2%2B+years+of+crafting+clean+code" alt="Typing SVG" />
 
 [![Portfolio](https://img.shields.io/badge/Portfolio-6c5ce7?style=for-the-badge&logo=google-chrome&logoColor=white)](https://mihirsoni.dev)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/mihirsoni)
-[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:mihir@example.com)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/mihir-soni-93885a266)
+[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:mihirsoni020@gmail.com)
 
 </div>
 
