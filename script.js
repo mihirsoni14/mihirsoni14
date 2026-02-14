@@ -187,23 +187,59 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // ---------- Contact Form ----------
+    // ---------- Contact Form (Web3Forms) ----------
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
-        contactForm.addEventListener('submit', (e) => {
+        contactForm.addEventListener('submit', async (e) => {
             e.preventDefault();
 
             const btn = contactForm.querySelector('.btn');
             const originalContent = btn.innerHTML;
 
-            btn.innerHTML = '<i class="ph ph-check-circle"></i> Message Sent!';
-            btn.style.background = 'linear-gradient(135deg, #00cec9, #55efc4)';
+            // Show loading state
+            btn.innerHTML = '<i class="ph ph-spinner"></i> Sending...';
+            btn.disabled = true;
+            btn.style.opacity = '0.7';
 
-            setTimeout(() => {
-                btn.innerHTML = originalContent;
-                btn.style.background = '';
-                contactForm.reset();
-            }, 3000);
+            // Collect form data
+            const formData = new FormData(contactForm);
+            formData.append('access_key', '22b6ffd7-21d6-4c82-bf93-b0e92eb6ced5'); // Replace with your Web3Forms access key
+
+            try {
+                const response = await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    // Success state
+                    btn.innerHTML = '<i class="ph ph-check-circle"></i> Message Sent!';
+                    btn.style.background = 'linear-gradient(135deg, #00cec9, #55efc4)';
+                    btn.style.opacity = '1';
+                    contactForm.reset();
+
+                    setTimeout(() => {
+                        btn.innerHTML = originalContent;
+                        btn.style.background = '';
+                        btn.disabled = false;
+                    }, 3000);
+                } else {
+                    throw new Error(result.message || 'Something went wrong');
+                }
+            } catch (error) {
+                // Error state
+                btn.innerHTML = '<i class="ph ph-warning-circle"></i> Failed to Send';
+                btn.style.background = 'linear-gradient(135deg, #d63031, #e17055)';
+                btn.style.opacity = '1';
+
+                setTimeout(() => {
+                    btn.innerHTML = originalContent;
+                    btn.style.background = '';
+                    btn.disabled = false;
+                }, 3000);
+            }
         });
     }
 });
